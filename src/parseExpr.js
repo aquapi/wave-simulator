@@ -6,5 +6,5 @@ export default (str) => {
   // Fast path
   if (!isNaN(+str)) return +str;
 
-  return NaN;
+  return null;
 };
