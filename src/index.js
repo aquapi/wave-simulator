@@ -19,7 +19,7 @@ renderMovingWave();
     const id = el.id;
 
     if (id in state) {
-      el.addEventListener("change", () => {
+      el.addEventListener("keyup", () => {
         // @ts-ignore
         const val = parseExpr(el.value);
 
@@ -33,7 +33,7 @@ renderMovingWave();
     else if (id in casts) {
       const [targetId, scale] = casts[id];
 
-      el.addEventListener("change", () => {
+      el.addEventListener("keyup", () => {
         // @ts-ignore
         const val = parseExpr(el.value);
 
