@@ -30,6 +30,11 @@ export default {
   reverse: false,
   moving: true,
 
+  /**
+   * Last frame time in milliseconds
+   */
+  deltaTime: 0,
+
   // Wave state
   v: 1,
   lambda() {

@@ -14,10 +14,20 @@ export function renderFrame() {
 // Move the wave
 const SPEED_SCALE = 0.0161;
 
+let lastUpdated = performance.now();
+let currentTime = lastUpdated;
+
 export function renderMovingWave() {
+  // Calculate delta time
+  currentTime = performance.now();
+  state.deltaTime = currentTime - lastUpdated;
+  lastUpdated = currentTime;
+
   if (state.moving) {
     // Calculate wave speed (left to right)
-    state.phi += state.reverse ? SPEED_SCALE * state.w : -SPEED_SCALE * state.w;
+    state.phi += state.reverse
+      ? (state.deltaTime / 1000) * state.w
+      : (-state.deltaTime / 1000) * state.w;
   }
 
   // Still rerender
