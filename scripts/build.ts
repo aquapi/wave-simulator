@@ -4,6 +4,7 @@ export const build = () => {
   Bun.build({
     entrypoints: ['src/index.js'],
     outdir: 'build/dist',
+    minify: true
   });
 }
 
