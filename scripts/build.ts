@@ -1,11 +1,15 @@
-export const build = () => {
+import { relative } from 'path/posix';
+
+export const build = async () => {
   console.log(`${(Math.random() * 100).toFixed(1)}: Building files...`);
 
-  Bun.build({
-    entrypoints: ['src/index.js'],
-    outdir: 'build/dist',
-    minify: true
-  });
+  console.log(
+    await Bun.build({
+      entrypoints: ['src/index.js'],
+      outdir: 'build/dist',
+      minify: true
+    })
+  );
 }
 
 build();

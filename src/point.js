@@ -1,6 +1,6 @@
 // @ts-check
 import { ctx, DOUBLE_PI } from "./constants.js";
-import { calcPosFixed } from "./vec.js";
+import { calcPos } from "./vec.js";
 
 // Point list
 const POINT_RADIUS = 6;
@@ -15,7 +15,7 @@ export default function renderPoints() {
   ctx.fillStyle = "red";
 
   for (let i = 0, l = pointsList.length, arr; i < l; i++) {
-    arr = calcPosFixed(pointsList[i]);
+    arr = calcPos(pointsList[i]);
 
     ctx.moveTo(...arr);
     ctx.arc(...arr, POINT_RADIUS, 0, DOUBLE_PI);
