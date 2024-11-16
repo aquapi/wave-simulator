@@ -18,6 +18,14 @@ export default {
     return this.A * Math.cos((this.w * t) / Y_DENSITY + this.phi + Math.PI);
   },
 
+  /**
+   * @param {number} i
+   * @returns {[number, number]}
+   */
+  coords(i) {
+    return [i + OFFSET_X, this.getX(i / this.lambda()) + OFFSET_Y];
+  },
+
   // Moving state
   reverse: false,
   moving: true,
@@ -28,11 +36,6 @@ export default {
     return (this.v * DOUBLE_PI) / this.w;
   },
 
-  /**
-   * @param {number} i
-   * @returns {[number, number]}
-   */
-  coords(i) {
-    return [i + OFFSET_X, this.getX(i / this.lambda()) + OFFSET_Y];
-  },
+  // Point list
+  points: [120, 375, 400, 620],
 };

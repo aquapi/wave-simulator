@@ -5,17 +5,12 @@ import state from "./state.js";
 // Point list
 const POINT_RADIUS = 6;
 
-/**
- * @type {number[]}
- */
-export const pointsList = [120, 235, 345, 472];
-
 export default function renderPoints() {
   ctx.beginPath();
   ctx.fillStyle = "red";
 
-  for (let i = 0, l = pointsList.length, arr; i < l; i++) {
-    arr = state.coords(pointsList[i]);
+  for (let i = 0, points = state.points, l = points.length, arr; i < l; i++) {
+    arr = state.coords(points[i]);
 
     ctx.moveTo(...arr);
     ctx.arc(...arr, POINT_RADIUS, 0, DOUBLE_PI);
