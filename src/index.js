@@ -9,10 +9,11 @@ renderMovingWave();
 // Load function modifiers
 {
   /**
-   * @type {Record<string, [keyof typeof state, number]>}
+   * @type {Record<string, [keyof typeof state, (v: number) => number]>}
    */
   const casts = {
-    f: ["w", DOUBLE_PI],
+    f: ["w", (v) => v * DOUBLE_PI],
+    T: ["w", (v) => DOUBLE_PI / v],
   };
 
   document.querySelectorAll("#modifiers input").forEach((el) => {
@@ -39,7 +40,7 @@ renderMovingWave();
 
         if (typeof val === "number" && val !== 0)
           // @ts-ignore
-          state[targetId] = val * scale;
+          state[targetId] = scale(val);
       });
     }
   });
