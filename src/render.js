@@ -12,12 +12,12 @@ export function renderFrame() {
 }
 
 // Move the wave
-const SPEED_SCALE = 0.1;
+const SPEED_SCALE = 0.0161;
 
 export function renderMovingWave() {
   if (state.moving) {
     // Calculate wave speed (left to right)
-    state.phi += state.reverse ? SPEED_SCALE : -SPEED_SCALE;
+    state.phi += state.reverse ? SPEED_SCALE * state.w : -SPEED_SCALE * state.w;
   }
 
   // Still rerender

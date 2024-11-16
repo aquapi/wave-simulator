@@ -16,7 +16,7 @@ export default {
     if (path === '')
       return responseHtml.clone();
 
-    if (path === 'index.js')
+    if (path === 'dist/index.js')
       return responseJs.clone();
 
     return notFound;

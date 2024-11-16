@@ -37,5 +37,5 @@ export default {
   },
 
   // Point list
-  points: [120, 375, 400, 620],
+  points: [125, 250, 400, 620],
 };
