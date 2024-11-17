@@ -63,11 +63,11 @@ export default function renderBaseCoords() {
   ctx.fillStyle = "gray";
 
   // Draw vertical axis
-  renderArrow(OFFSET_X, OFFSET_Y - state.A - EXTEND_WIDTH, 0, "x");
+  renderArrow(OFFSET_X, OFFSET_Y - state.A - EXTEND_WIDTH, 0, "u");
   ctx.lineTo(OFFSET_X, OFFSET_Y + state.A);
 
   // Draw horizontal axis
-  renderArrow(OFFSET_X + MAX_RENDER_WIDTH, OFFSET_Y, 1, "t");
+  renderArrow(OFFSET_X + MAX_RENDER_WIDTH, OFFSET_Y, 1, "x");
   ctx.lineTo(OFFSET_X, OFFSET_Y);
 
   // Render O
