@@ -3,7 +3,7 @@ import { ctx, MAX_RENDER_WIDTH, OFFSET_X, OFFSET_Y } from "./constants.js";
 import state from "./state.js";
 
 // Arrows and base coords
-const ARROW_SIZE = 5;
+const ARROW_SIZE = 4;
 const FONT_SIZE = ARROW_SIZE * 4;
 
 const xModifyMap = [
