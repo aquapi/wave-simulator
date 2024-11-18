@@ -1,7 +1,5 @@
 // @ts-check
-import { DOUBLE_PI, OFFSET_X, OFFSET_Y } from "./constants";
-
-const Y_DENSITY = 500;
+import { DOUBLE_PI, MAX_RENDER_WIDTH, OFFSET_X, OFFSET_Y } from "./constants";
 
 export default {
   // Function state
@@ -15,7 +13,9 @@ export default {
    */
   getX(t) {
     // Add a PI to reverse the graph
-    return this.A * Math.cos((this.w * t) / Y_DENSITY + this.phi + Math.PI);
+    return (
+      this.A * Math.cos((this.w * t) / MAX_RENDER_WIDTH + this.phi + Math.PI)
+    );
   },
 
   /**

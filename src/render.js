@@ -12,8 +12,6 @@ export function renderFrame() {
 }
 
 // Move the wave
-const SPEED_SCALE = 0.0161;
-
 let lastUpdated = performance.now();
 let currentTime = lastUpdated;
 
