@@ -3,7 +3,7 @@ import { DOUBLE_PI, MAX_RENDER_WIDTH, OFFSET_X, OFFSET_Y } from "./constants";
 
 export default {
   // Function state
-  A: 50,
+  A: 70,
   w: 2 * Math.PI,
   phi: Math.PI,
 
@@ -23,7 +23,7 @@ export default {
    * @returns {[number, number]}
    */
   coords(i) {
-    return [i + OFFSET_X, this.getX(i / this.lambda()) + OFFSET_Y];
+    return [i + OFFSET_X, this.getX(i / this.v) + OFFSET_Y];
   },
 
   // Moving state
@@ -37,9 +37,6 @@ export default {
 
   // Wave state
   v: 1,
-  lambda() {
-    return (this.v * DOUBLE_PI) / this.w;
-  },
 
   // Point list
   points: [125, 250, 400, 620],
