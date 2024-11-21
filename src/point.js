@@ -7,7 +7,7 @@ const POINT_RADIUS = 6;
 
 export default function renderPoints() {
   ctx.beginPath();
-  ctx.fillStyle = "red";
+  ctx.fillStyle = state.pointsStyle;
 
   for (let i = 0, points = state.points, l = points.length, arr; i < l; i++) {
     arr = state.coords(points[i]);

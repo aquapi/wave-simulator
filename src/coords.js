@@ -57,10 +57,12 @@ const EXTEND_WIDTH = 60;
 export default function renderBaseCoords() {
   // Render the base coords
   ctx.beginPath();
-  ctx.strokeStyle = "gray";
+  ctx.strokeStyle = state.axisStyle;
+
+  console.log(state.textStyle, ctx.fillStyle);
+  ctx.fillStyle = state.textStyle;
 
   ctx.font = FONT_SIZE + "px monospace";
-  ctx.fillStyle = "gray";
 
   // Draw vertical axis
   renderArrow(OFFSET_X, OFFSET_Y - state.A - EXTEND_WIDTH, 0, "u");

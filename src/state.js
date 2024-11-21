@@ -40,4 +40,10 @@ export default {
 
   // Point list
   points: [125, 250, 400, 620],
+
+  // Styling
+  waveStyle: "black",
+  axisStyle: "gray",
+  pointsStyle: "red",
+  textStyle: "black",
 };

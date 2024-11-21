@@ -16,22 +16,24 @@ renderMovingWave();
     T: ["w", (v) => DOUBLE_PI / v],
   };
 
-  document.querySelectorAll("#modifiers input").forEach((el) => {
+  /**
+   * @type {Partial<Record<keyof typeof state, (v: string) => any>>}
+   */
+  const transforms = {
+    waveStyle: (color) => color,
+    axisStyle: (color) => color,
+
+    pointsStyle: (color) => color,
+    points: (list) => list.split(",").map((item) => +item.trim()),
+
+    textStyle: (color) => color,
+  };
+
+  document.querySelectorAll(".modifiers input").forEach((el) => {
     const id = el.id;
 
-    if (id in state) {
-      el.addEventListener("keyup", () => {
-        // @ts-ignore
-        const val = parseExpr(el.value);
-
-        if (typeof val === "number" && val !== 0)
-          // @ts-ignore
-          state[id] = val;
-      });
-    }
-
     // Modify another value with a scale
-    else if (id in casts) {
+    if (id in casts) {
       const [targetId, scale] = casts[id];
 
       el.addEventListener("keyup", () => {
@@ -41,6 +43,30 @@ renderMovingWave();
         if (typeof val === "number" && val !== 0)
           // @ts-ignore
           state[targetId] = scale(val);
+      });
+    } else if (id in transforms) {
+      // @ts-ignore
+      const parse = transforms[id];
+
+      el.addEventListener("keyup", () => {
+        // @ts-ignore
+        const val = el.value;
+
+        if (val.length !== 0)
+          // @ts-ignore
+          state[id] = parse(val);
+      });
+    }
+
+    // Direct modification
+    else if (id in state) {
+      el.addEventListener("keyup", () => {
+        // @ts-ignore
+        const val = parseExpr(el.value);
+
+        if (typeof val === "number" && val !== 0)
+          // @ts-ignore
+          state[id] = val;
       });
     }
   });

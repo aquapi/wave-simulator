@@ -28,7 +28,8 @@ export function renderMovingWave() {
       : (-state.deltaTime / 1000) * state.w;
   }
 
-  // Still rerender
+  // Reset the frame
+  ctx.strokeStyle = ctx.fillStyle = "";
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
   renderFrame();
 
